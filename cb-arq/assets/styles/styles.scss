@@ -1,0 +1,69 @@
+@import "colores.scss";
+
+//estilos básicos para todo
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+//fuente gral
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.contenedor {
+    width: 98%;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    background-color: $gris;
+    color: $blanco;
+    // position: fixed; //para que el menú se quede pegado
+    top: 0; //para que empiece de la esquina superior izq.
+    left: 0;
+    z-index: 100;
+    .contenedor {
+        display: table;
+    }
+    label { //icono menu desplegable
+    float: right; 
+    font-size: 28px;
+    margin: 6px 0;
+    cursor: pointer; //aparece la mano cuando paso por el icono
+    }
+    #menu-bar {
+        display: none; //desaparece el icono del input
+        &:checked ~ .menu { //cuando input esté con el check, va a seleccionar el menú
+        transform: translateX(0%);
+        }
+    }
+    .menu {
+        position: absolute;
+        top: 50px; //para que empiece desde la esquina, abajo del header
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $gris-transparencia;
+        transition: all 0.5s;
+        transform: translateX(-100%);
+        a {
+            display: block;
+            color: $blanco;
+            height: 50px; //la altura de cada a.
+            text-decoration: none;
+            padding: 15px;
+            border-bottom: 1px solid $borde;
+            &:hover {
+                background-color: $background-hover;
+            }
+        }
+    }
+}
+
+
+
